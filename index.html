@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Umar Chaudhry — Software Engineer</title>
+    <meta
+      name="description"
+      content="Umar Chaudhry — Software Engineer. Full-stack web & cloud engineer. TypeScript, Next.js, NestJS, AWS."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b6'%3E%3C/rect%3E%3Ctext x='50' y='57' font-size='46' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'%3EU%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      /* ---------- Reset & base ---------- */
+      :root {
+        --bg: #0f1724;
+        --card: #0b1220;
+        --muted: #9aa6b2;
+        --accent: #0ea5a4;
+        --glass: rgba(255, 255, 255, 0.03);
+        --maxw: 1100px;
+        --radius: 14px;
+        --shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+        background: linear-gradient(180deg, #071325 0%, #081428 100%);
+        color: #e6eef3;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.45;
+        padding: 32px 20px;
+        display: flex;
+        justify-content: center;
+      }
+      .container {
+        width: 100%;
+        max-width: var(--maxw);
+      }
+
+      /* ---------- Header / Nav ---------- */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 26px;
+      }
+      .site-title {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), #0b9fbf);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: white;
+        font-size: 20px;
+        box-shadow: var(--shadow);
+      }
+      nav {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 10px 12px;
+        border-radius: 8px;
+      }
+      nav a:hover,
+      nav a:focus {
+        color: white;
+        background: var(--glass);
+      }
+      .cta {
+        background: linear-gradient(90deg, var(--accent), #06b6d4);
+        padding: 8px 12px;
+        border-radius: 10px;
+        color: #02121a;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 8px 22px rgba(10, 160, 154, 0.15);
+      }
+
+      /* ---------- Main layout ---------- */
+      main {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 28px;
+        align-items: start;
+      }
+      @media (max-width: 900px) {
+        main {
+          grid-template-columns: 1fr;
+          padding-bottom: 36px;
+        }
+      }
+
+      /* ---------- Left column (profile card) ---------- */
+      .profile {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: var(--radius);
+        padding: 22px;
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 28px;
+      }
+      .photo {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 12px;
+        height: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, #0a2c33, #062022);
+        margin-bottom: 16px;
+      }
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .name {
+        font-size: 20px;
+        font-weight: 800;
+        margin: 6px 0 2px;
+      }
+      .title {
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+      .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .contact a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .pill {
+        display: inline-block;
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--muted);
+        font-weight: 700;
+        margin-right: 8px;
+        margin-bottom: 8px;
+      }
+
+      /* ---------- Right column (content) ---------- */
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: var(--radius);
+        padding: 22px;
+        box-shadow: var(--shadow);
+        margin-bottom: 18px;
+      }
+      .section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+      p.lead {
+        margin-top: 6px;
+        color: var(--muted);
+      }
+
+      /* Experience list */
+      .role {
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+      }
+      .role:last-child {
+        border-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .role .meta {
+        color: var(--muted);
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .bullets {
+        margin: 6px 0 0 18px;
+        color: var(--muted);
+      }
+      .bullets li {
+        margin-bottom: 8px;
+      }
+
+      /* Skills */
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .skill {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 8px 10px;
+        border-radius: 10px;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      /* Projects grid */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      @media (max-width: 700px) {
+        .projects {
+          grid-template-columns: 1fr;
+        }
+      }
+      .proj {
+        padding: 12px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.02);
+      }
+
+      /* Contact form */
+      form {
+        display: grid;
+        gap: 10px;
+      }
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 10px;
+        border-radius: 8px;
+        color: inherit;
+      }
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 10px;
+        background: linear-gradient(90deg, var(--accent), #06b6d4);
+        color: #02121a;
+        font-weight: 800;
+        border: 0;
+        cursor: pointer;
+      }
+      .meta-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      footer {
+        margin-top: 18px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 14px;
+      }
+
+      /* small helpers */
+      .muted {
+        color: var(--muted);
+      }
+      a.alt {
+        color: var(--muted);
+        text-decoration: underline;
+      }
+      .download {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .download a {
+        font-weight: 700;
+        color: var(--muted);
+        text-decoration: none;
+      }
+      .small {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .mobile-menu {
+        display: none;
+      }
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+        }
+        .mobile-menu {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="site-title">
+          <div class="logo" aria-hidden="true">U</div>
+          <div>
+            <div style="font-weight: 800">Umar Chaudhry</div>
+            <div class="small muted">
+              Software Engineer — Full-stack & Cloud
+            </div>
+          </div>
+        </div>
+
+        <nav aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+        </nav>
+
+        <button
+          class="mobile-menu"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+          id="menuBtn"
+        >
+          Menu ▾
+        </button>
+      </header>
+
+      <main>
+        <!-- ---------- LEFT: Profile Card ---------- -->
+        <aside class="profile" aria-labelledby="profileHeading">
+          <div class="photo" role="img" aria-label="Photo of Umar Chaudhry">
+            <!-- Replace 'umar.jpeg' with your image file placed in same folder -->
+            <img src="umar.jpeg" alt="Umar Chaudhry" />
+          </div>
+
+          <div>
+            <div id="profileHeading" class="name">Umar Chaudhry</div>
+            <div class="title">Software Engineer — Full-stack & Cloud</div>
+            <div class="small muted">
+              Morton Grove, IL · Available for remote + hybrid roles
+            </div>
+
+            <div class="contact" style="margin-top: 14px">
+              <div class="download">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  style="opacity: 0.9"
+                >
+                  <path
+                    d="M12 3v12"
+                    stroke="#9aa6b2"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                    stroke="#9aa6b2"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <!-- Make sure the PDF filename matches -->
+                <a href="Umar Chaudhry, Resume.pdf" download
+                  >Download Resume (PDF)</a
+                >
+              </div>
+
+              <a href="mailto:umarc100117@gmail.com">umarc100117@gmail.com</a>
+              <a href="tel:+12243049552">224-304-9552</a>
+              <div class="small muted">
+                Links:
+                <a class="alt" href="#" onclick="event.preventDefault()"
+                  >GitHub</a
+                >
+                ·
+                <a class="alt" href="#" onclick="event.preventDefault()"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
+
+            <div style="margin-top: 16px">
+              <div class="pill">Spring Boot</div>
+              <div class="pill">Express</div>
+              <div class="pill">TypeScript</div>
+              <div class="pill">React</div>
+              <div class="pill">Next.js</div>
+              <div class="pill">NestJS</div>
+              <div class="pill">AWS</div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- ---------- RIGHT: Content ---------- -->
+        <section>
+          <!-- About -->
+          <article id="about" class="card" aria-labelledby="aboutTitle">
+            <div class="section-title">
+              <h2 id="aboutTitle">About</h2>
+              <div class="small muted">
+                Bachelor of Science — UIC, Mathematics & Computer Science
+              </div>
+            </div>
+            <p class="lead">
+              I'm a full-stack engineer with a focus on cloud-native web
+              applications, scalable backend systems, and telephony/IVR
+              integrations. I enjoy building reliable systems that connect voice
+              and AI with modern web frontends.
+            </p>
+            <p class="small muted" style="margin-top: 8px">
+              GPA: 3.97/4.0 · LAS Scholarship · Dean’s List (7+ semesters) · AWS
+              Certified Cloud Practitioner
+            </p>
+          </article>
+
+          <!-- Experience -->
+          <article id="experience" class="card" aria-labelledby="expTitle">
+            <div class="section-title">
+              <h2 id="expTitle">Work Experience</h2>
+              <div class="small muted">Selected roles</div>
+            </div>
+
+            <div class="role">
+              <div class="meta">
+                Software Engineer I — Vail Systems · Chicago, IL · Jan 2024 –
+                Present
+              </div>
+              <ul class="bullets">
+                <li>
+                  Built a web app using Next.js (TypeScript) + NestJS
+                  (TypeScript) that leverages the FreeClimb API to configure
+                  automated phone call systems with call routing and
+                  text-to-speech.
+                </li>
+                <li>
+                  Designed backend architecture (NestJS + GraphQL) with TypeORM
+                  + MS SQL, session auth, permission-based authorization, Stripe
+                  billing, API throttling, and Square OAuth integration.
+                </li>
+                <li>
+                  Led IVR enhancements enabling natural speech interaction and
+                  call transcription; integrated AWS services (Lambda, DynamoDB,
+                  S3, Polly, SNS, EventBridge, X-Ray).
+                </li>
+                <li>
+                  Developed an AI chatbot integrated into the call flow using
+                  Python, Redis, and Kafka to allow natural-language
+                  interactions for actions (ordering, opt-in SMS, etc.).
+                </li>
+                <li>
+                  Implemented testing (unit, integration, Cypress, Lambda tests)
+                  and deployed with Docker, Kubernetes, CloudBees/Jenkins,
+                  GitLab CI/CD.
+                </li>
+              </ul>
+            </div>
+
+            <div class="role">
+              <div class="meta">
+                Web Software Engineer Intern — Vail Systems · Jun 2023 – Aug
+                2023
+              </div>
+              <ul class="bullets">
+                <li>
+                  Rebuilt a legacy application with React and modernized backend
+                  features in Ruby on Rails.
+                </li>
+                <li>
+                  Created unit tests, Storybook stories for components, and
+                  presented deliverables to senior leadership.
+                </li>
+              </ul>
+            </div>
+
+            <div class="role">
+              <div class="meta">
+                AI Research Assistant — UIC College of LAS · Aug 2022 – Dec 2022
+              </div>
+              <ul class="bullets">
+                <li>
+                  Implemented a Q-Learning algorithm in Python for Connect 4;
+                  authored a research paper; model outperformed random baseline.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Skills -->
+          <article id="skills" class="card" aria-labelledby="skillsTitle">
+            <div class="section-title">
+              <h2 id="skillsTitle">Skills</h2>
+              <div class="small muted">Technologies & tools</div>
+            </div>
+
+            <div class="skills" aria-hidden="false">
+              <div class="pill">Spring Boot</div>
+              <div class="pill">Express</div>
+              <div class="skill">TypeScript</div>
+              <div class="skill">React</div>
+              <div class="skill">Next.js</div>
+              <div class="skill">NestJS</div>
+              <div class="skill">GraphQL</div>
+              <div class="skill">Node.js</div>
+              <div class="skill">Python</div>
+              <div class="skill">Docker</div>
+              <div class="skill">Kubernetes</div>
+              <div class="skill">AWS (Lambda, S3, DynamoDB)</div>
+              <div class="skill">MS SQL / TypeORM</div>
+              <div class="skill">Stripe</div>
+              <div class="skill">Cypress (E2E)</div>
+            </div>
+          </article>
+
+          <footer>
+            <div class="small muted">
+              © <span id="year"></span> Umar Chaudhry · Built with HTML, CSS &
+              JavaScript
+            </div>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // Basic UI interactivity: mobile menu, smooth scrolling, contact form
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Mobile menu (simple)
+      const menuBtn = document.getElementById("menuBtn");
+      menuBtn?.addEventListener("click", () => {
+        const nav = document.querySelector("nav");
+        const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+        menuBtn.setAttribute("aria-expanded", String(!expanded));
+        if (nav) {
+          nav.style.display = expanded ? "none" : "flex";
+        }
+      });
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+          if (!href || href === "#") return;
+          const el = document.querySelector(href);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Contact form: open default mail client with prefilled values
+      function handleContactSubmit(e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+        const formMsg = document.getElementById("formMsg");
+
+        // Basic validation
+        if (!name || !email || !message) {
+          formMsg.textContent = "Please fill all fields.";
+          return false;
+        }
+        // Build mailto link (fallback to client mail)
+        const to = "umarc100117@gmail.com";
+        const subject = encodeURIComponent("Website Contact — " + name);
+        const body = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n--\nSent from portfolio site`
+        );
+        const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+        // open in new tab/window
+        window.location.href = mailto;
+        formMsg.textContent = "Opening your email client…";
+        return false;
+      }
+
+      // vCard generator (downloads small .vcf file)
+      function downloadVCard() {
+        const vcard = [
+          "BEGIN:VCARD",
+          "VERSION:3.0",
+          "N:Chaudhry;Umar;;;",
+          "FN:Umar Chaudhry",
+          "TEL;TYPE=WORK,VOICE:+1-224-304-9552",
+          "EMAIL;TYPE=PREF:umarc100117@gmail.com",
+          "ORG:Vail Systems",
+          "TITLE:Software Engineer",
+          "ADR;TYPE=WORK:;;Morton Grove;IL;60053;USA",
+          "END:VCARD",
+        ].join("\\r\\n");
+
+        const blob = new Blob([vcard], { type: "text/vcard" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "Umar_Chaudhry.vcf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      // Accessibility: focus visible outline for keyboard users
+      (function () {
+        const style = document.createElement("style");
+        style.innerHTML =
+          ":focus{outline:3px solid rgba(14,165,164,0.18);outline-offset:3px}";
+        document.head.appendChild(style);
+      })();
+    </script>
+  </body>
+</html>
